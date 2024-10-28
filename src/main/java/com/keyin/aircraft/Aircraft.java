@@ -18,14 +18,9 @@ public class Aircraft {
     private int numberOfPassengers;
 
     @ManyToMany
-    @JoinTable(
-            name = "aircraft_airport",
-            joinColumns = @JoinColumn(name = "aircraft_id"),
-            inverseJoinColumns = @JoinColumn(name = "airport_id")
-    )
     private List<Airport> airports = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "aircrafts")
+    @OneToMany
     private List<Passengers> passengers = new ArrayList<>();
 
     // Constructors

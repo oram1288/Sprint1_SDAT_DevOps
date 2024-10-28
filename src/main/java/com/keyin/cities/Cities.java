@@ -3,6 +3,8 @@ package com.keyin.cities;
 import com.keyin.airport.Airport;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 @Entity
 public class Cities {
 
@@ -17,7 +19,7 @@ public class Cities {
     private String state;
 
     @OneToMany
-    private Airport airports;
+    private ArrayList<Airport> airports;
 
     private String weather;
 
@@ -59,12 +61,12 @@ public class Cities {
         this.state = state;
     }
 
-    public Airport getAirport() {
+    public ArrayList<Airport> getAirports() {
         return airports;
     }
 
-    public void setAirport(Airport airport) {
-        this.airports = airport;
+    public void setAirports(ArrayList<Airport> airports) {
+        this.airports = airports;
     }
 
     public String getWeather() {

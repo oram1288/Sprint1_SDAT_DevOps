@@ -1,11 +1,21 @@
 package com.keyin.passengers;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Passengers {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int passengerID;
     private String passengerName;
     private String passengerAddress;
     private String passengerPhone;
     private String passengerEmail;
+
 
     public Passengers() {
 
