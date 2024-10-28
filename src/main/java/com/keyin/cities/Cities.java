@@ -9,14 +9,14 @@ public class Cities {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cityId;
 
-    private String name;
+    private String city;
 
     private String country;
 
     private String state;
 
     @OneToMany
-    private Airports airports;
+    private Airport airports;
 
     private String weather;
 
@@ -34,12 +34,12 @@ public class Cities {
         this.cityId = cityId;
     }
 
-    public String getName() {
-        return name;
+    public String getCity() {
+        return city;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCity(String name) {
+        this.city = city;
     }
 
     public String getCountry() {
@@ -58,11 +58,11 @@ public class Cities {
         this.state = state;
     }
 
-    public Airports getAirport() {
+    public Airport getAirport() {
         return airports;
     }
 
-    public void setAirport(Airports airport) {
+    public void setAirport(Airport airport) {
         this.airports = airport;
     }
 
@@ -86,7 +86,7 @@ public class Cities {
     public String toString() {
         return "City {" +
                 "Cities Id:" + cityId +
-                "Name:" + name +
+                "City:" + city +
                 "Country:" + country +
                 "State:" + state +
                 "Airports" + airports +
@@ -99,7 +99,7 @@ public class Cities {
 //[
 //  {
 //    "id": 1,
-//    "name": "Toronto",
+//    "city": "Toronto",
 //    "country": "Canada",
 //    "state": "Ontario",
 //    "weather": "Sunny",
@@ -107,7 +107,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 2,
-//    "name": "Vancouver",
+//    "city": "Vancouver",
 //    "country": "Canada",
 //    "state": "British Columbia",
 //    "weather": "Rainy",
@@ -115,7 +115,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 3,
-//    "name": "Montreal",
+//    "city": "Montreal",
 //    "country": "Canada",
 //    "state": "Quebec",
 //    "weather": "Snowy",
@@ -123,7 +123,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 4,
-//    "name": "Edmonton",
+//    "city": "Edmonton",
 //    "country": "Canada",
 //    "state": "Alberta",
 //    "weather": "Windy",
@@ -131,7 +131,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 5,
-//    "name": "Calgary",
+//    "city": "Calgary",
 //    "country": "Canada",
 //    "state": "Alberta",
 //    "weather": "Clear",
@@ -139,7 +139,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 6,
-//    "name": "Los Angeles",
+//    "city": "Los Angeles",
 //    "country": "United States",
 //    "state": "California",
 //    "weather": "Sunny",
@@ -147,7 +147,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 7,
-//    "name": "Chicago",
+//    "city": "Chicago",
 //    "country": "United States",
 //    "state": "Illinois",
 //    "weather": "Windy",
@@ -155,7 +155,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 8,
-//    "name": "Houston",
+//    "city": "Houston",
 //    "country": "United States",
 //    "state": "Texas",
 //    "weather": "Hot",
@@ -163,7 +163,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 9,
-//    "name": "Phoenix",
+//    "city": "Phoenix",
 //    "country": "United States",
 //    "state": "Arizona",
 //    "weather": "Sunny",
@@ -171,7 +171,7 @@ public class Cities {
 //  },
 //  {
 //    "id": 10,
-//    "name": "London",
+//    "city": "London",
 //    "country": "United Kingdom",
 //    "state": "England",
 //    "weather": "Rainy",
