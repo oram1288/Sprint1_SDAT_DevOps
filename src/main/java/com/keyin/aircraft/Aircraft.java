@@ -25,7 +25,7 @@ public class Aircraft {
     )
     private List<Airport> airports = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "aircraft")
+    @ManyToMany(mappedBy = "aircrafts")
     private List<Passengers> passengers = new ArrayList<>();
 
     // Constructors

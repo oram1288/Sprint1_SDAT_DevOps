@@ -1,5 +1,6 @@
 package com.keyin.cities;
 
+import com.keyin.airport.Airport;
 import jakarta.persistence.*;
 
 @Entity

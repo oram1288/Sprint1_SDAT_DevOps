@@ -1,5 +1,7 @@
 package com.keyin.airport;
 
+import com.keyin.aircraft.Aircraft;
+import com.keyin.cities.Cities;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class Airport {
 
     @ManyToOne
     @JoinColumn(name = "city_id", nullable = false)
-    private City city;
+    private Cities city;
 
     @ManyToMany(mappedBy = "airports")
     private List<Aircraft> aircrafts = new ArrayList<>();
@@ -24,7 +26,7 @@ public class Airport {
     // Constructors
     public Airport() {}
 
-    public Airport(String name, String code, City city) {
+    public Airport(String name, String code, Cities city) {
         this.name = name;
         this.code = code;
         this.city = city;
@@ -55,11 +57,11 @@ public class Airport {
         this.code = code;
     }
 
-    public City getCity() {
+    public Cities getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(Cities city) {
         this.city = city;
     }
 
@@ -78,7 +80,7 @@ public class Airport {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
-                ", city=" + city.getName() +
+                ", city=" + city.getCity() +
                 '}';
     }
 }
