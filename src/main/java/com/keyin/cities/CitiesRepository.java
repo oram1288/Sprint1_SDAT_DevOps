@@ -1,7 +1,9 @@
 package com.keyin.cities;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CitiesRepository extends CrudRepository<Cities, Long> {
-    Iterable<Cities> findCityByAirportName(String airport_name);
+    Iterable<Cities> findCityByAirports_Name(String airport_name);
 }

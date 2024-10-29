@@ -18,6 +18,6 @@ public class CitiesService {
     }
 
     public Iterable<Cities> findByAirport(String name) {
-        return citiesRepository.findCityByAirportName(name);
+        return citiesRepository.findCityByAirports_Name(name);
     }
 }
