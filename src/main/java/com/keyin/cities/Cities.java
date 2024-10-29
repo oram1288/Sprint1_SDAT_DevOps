@@ -2,7 +2,6 @@ package com.keyin.cities;
 
 import com.keyin.airport.Airport;
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 
 @Entity
@@ -99,6 +98,21 @@ public class Cities {
     }
 }
 
+// Toronto Pearson International Airport, Toronto
+// Billy Bishop Toronto City Airport, Toronto
+
+// Chicago Midway International Airport, Chicago
+// Chicago O'Hare International Airport, Chicago
+
+// Melbourne Orlando International Airport, Orlando
+// Orlando International Airport, Orlando
+
+// Montréal–Trudeau International Airport, Montreal
+// MET – Montreal Metropolitan Airport, Montreal
+
+// Los Angeles International Airport, Los Angeles
+// John Wayne Airport, Los Angeles
+
 //[
 //  {
 //    "id": 1,
@@ -134,9 +148,9 @@ public class Cities {
 //  },
 //  {
 //    "id": 5,
-//    "city": "Calgary",
-//    "country": "Canada",
-//    "state": "Alberta",
+//    "city": "Orlando",
+//    "country": "United States",
+//    "state": "Florida",
 //    "weather": "Clear",
 //    "population": 1239220
 //  },
@@ -161,7 +175,7 @@ public class Cities {
 //    "city": "Houston",
 //    "country": "United States",
 //    "state": "Texas",
-//    "weather": "Hot",
+//    "weather": "Cloudy",
 //    "population": 2328000
 //  },
 //  {
