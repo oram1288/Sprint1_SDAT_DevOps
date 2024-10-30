@@ -18,7 +18,7 @@ public class Airport {
 
     @ManyToOne
     @JoinColumn(name = "city_id", nullable = false)
-    private Cities city;
+    private Cities cityName;
 
     @ManyToMany(mappedBy = "airports")
     private List<Aircraft> aircrafts = new ArrayList<>();
@@ -26,10 +26,10 @@ public class Airport {
     // Constructors
     public Airport() {}
 
-    public Airport(String name, String code, Cities city) {
+    public Airport(String name, String code, Cities cityName) {
         this.name = name;
         this.code = code;
-        this.city = city;
+        this.cityName = cityName;
     }
 
     // Getters and Setters
@@ -57,12 +57,12 @@ public class Airport {
         this.code = code;
     }
 
-    public Cities getCity() {
-        return city;
+    public Cities getCityName() {
+        return cityName;
     }
 
-    public void setCity(Cities city) {
-        this.city = city;
+    public void setCityName(Cities cityName) {
+        this.cityName = cityName;
     }
 
     public List<Aircraft> getAircrafts() {
@@ -80,7 +80,7 @@ public class Airport {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
-                ", city=" + city.getCity() +
+                ", city=" + cityName +
                 '}';
     }
 }

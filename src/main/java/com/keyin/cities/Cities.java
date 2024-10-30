@@ -3,6 +3,7 @@ package com.keyin.cities;
 import com.keyin.airport.Airport;
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Cities {
@@ -11,14 +12,14 @@ public class Cities {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cityId;
 
-    private String city;
+    private String cityName;
 
     private String country;
 
     private String state;
 
     @OneToMany
-    private ArrayList<Airport> airports;
+    private List<Airport> airports = new ArrayList<Airport>();
 
     private String weather;
 
@@ -36,12 +37,12 @@ public class Cities {
         this.cityId = cityId;
     }
 
-    public String getCity() {
-        return city;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity(String name) {
-        this.city = city;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public String getCountry() {
@@ -60,11 +61,11 @@ public class Cities {
         this.state = state;
     }
 
-    public ArrayList<Airport> getAirports() {
+    public List<Airport> getAirports() {
         return airports;
     }
 
-    public void setAirports(ArrayList<Airport> airports) {
+    public void setAirports(List<Airport> airports) {
         this.airports = airports;
     }
 
@@ -88,7 +89,7 @@ public class Cities {
     public String toString() {
         return "City {" +
                 "Cities Id:" + cityId +
-                "City:" + city +
+                "City:" + cityName +
                 "Country:" + country +
                 "State:" + state +
                 "Airports" + airports +
