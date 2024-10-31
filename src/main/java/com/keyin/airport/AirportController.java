@@ -89,7 +89,7 @@ public class AirportController {
 
     // Get all airports
     @GetMapping
-    public List<Airport> getAllAirports() {
+    public Iterable<Airport> getAllAirports() {
         return airportService.getAllAirports();
     }
 

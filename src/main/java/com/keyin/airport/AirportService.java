@@ -1,5 +1,6 @@
 package com.keyin.airport;
 
+import com.keyin.cities.CitiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,9 @@ public class AirportService {
     private AirportRepository airportRepository;
 
     @Autowired
-    private CityRepository cityRepository;
+    private CitiesRepository citiesRepository;
 
-    public List<Airport> getAllAirports() {
+    public Iterable<Airport> getAllAirports() {
         return airportRepository.findAll();
     }
 
@@ -24,7 +25,7 @@ public class AirportService {
     }
 
     public Optional<Airport> createAirport(Airport airport) {
-        if (airport.getCityName() != null && cityRepository.existsById(airport.getCityName().getCityId())) {
+        if (airport.getCityName() != null && citiesRepository.existsById(airport.getCityName().getCityId())) {
             return Optional.of(airportRepository.save(airport));
         }
         return Optional.empty();
@@ -48,7 +49,7 @@ public class AirportService {
     }
 
     public List<Airport> getAirportsByCityId(Long cityId) {
-        if (cityRepository.existsById(cityId)) {
+        if (citiesRepository.existsById(cityId)) {
             return airportRepository.findByCityId(cityId);
         }
         return List.of();
