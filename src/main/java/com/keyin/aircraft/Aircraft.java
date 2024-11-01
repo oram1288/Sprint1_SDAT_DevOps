@@ -1,6 +1,7 @@
 package com.keyin.aircraft;
 
 import com.keyin.airport.Airport;
+import com.keyin.cities.Cities;
 import com.keyin.passengers.Passengers;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Aircraft {
     private int numberOfPassengers;
 
     @ManyToMany
-    private List<Airport> airports = new ArrayList<>();
+    private List<Airport> airports = new ArrayList<Airport>();
 
     @OneToMany
     private List<Passengers> passengers = new ArrayList<>();
