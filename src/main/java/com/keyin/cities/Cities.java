@@ -116,80 +116,70 @@ public class Cities {
 
 //[
 //  {
-//    "id": 1,
-//    "city": "Toronto",
+//    "cityName": "Toronto",
 //    "country": "Canada",
 //    "state": "Ontario",
 //    "weather": "Sunny",
 //    "population": 2930000
 //  },
 //  {
-//    "id": 2,
-//    "city": "Vancouver",
+//    "cityName": "Vancouver",
 //    "country": "Canada",
 //    "state": "British Columbia",
 //    "weather": "Rainy",
 //    "population": 675218
 //  },
 //  {
-//    "id": 3,
-//    "city": "Montreal",
+//    "cityName": "Montreal",
 //    "country": "Canada",
 //    "state": "Quebec",
 //    "weather": "Snowy",
 //    "population": 1780000
 //  },
 //  {
-//    "id": 4,
-//    "city": "Edmonton",
+//    "cityName": "Edmonton",
 //    "country": "Canada",
 //    "state": "Alberta",
 //    "weather": "Windy",
 //    "population": 1012000
 //  },
 //  {
-//    "id": 5,
-//    "city": "Orlando",
+//    "cityName": "Orlando",
 //    "country": "United States",
 //    "state": "Florida",
 //    "weather": "Clear",
 //    "population": 1239220
 //  },
 //  {
-//    "id": 6,
-//    "city": "Los Angeles",
+//    "cityName": "Los Angeles",
 //    "country": "United States",
 //    "state": "California",
 //    "weather": "Sunny",
 //    "population": 3967000
 //  },
 //  {
-//    "id": 7,
-//    "city": "Chicago",
+//    "cityName": "Chicago",
 //    "country": "United States",
 //    "state": "Illinois",
 //    "weather": "Windy",
 //    "population": 2716000
 //  },
 //  {
-//    "id": 8,
-//    "city": "Houston",
+//    "cityName": "Houston",
 //    "country": "United States",
 //    "state": "Texas",
 //    "weather": "Cloudy",
 //    "population": 2328000
 //  },
 //  {
-//    "id": 9,
-//    "city": "Phoenix",
+//    "cityName": "Phoenix",
 //    "country": "United States",
 //    "state": "Arizona",
 //    "weather": "Sunny",
 //    "population": 1681000
 //  },
 //  {
-//    "id": 10,
-//    "city": "London",
+//    "cityName": "London",
 //    "country": "United Kingdom",
 //    "state": "England",
 //    "weather": "Rainy",
