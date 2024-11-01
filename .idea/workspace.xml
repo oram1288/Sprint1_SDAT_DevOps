@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/aircraft/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/aircraft/Aircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/aircraft/AircraftRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/aircraft/AircraftRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/aircraft/AircraftService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/aircraft/AircraftService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/airport/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/airport/Airport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/airport/AirportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/airport/AirportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/airport/AirportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/airport/AirportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/airport/AirportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/airport/AirportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/cities/CitiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/cities/CitiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/cities/CitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/cities/CitiesService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +47,7 @@
     "Maven.Sprint1_SDAT_DevOps [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Cities-update",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -74,6 +67,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RestServiceApplication" />
         <item itemvalue="Application.RestServiceApplication" />
       </list>
     </recent_temporary>
