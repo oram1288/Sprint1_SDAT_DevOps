@@ -119,6 +119,7 @@ public class Cities {
 //    "cityName": "Toronto",
 //    "country": "Canada",
 //    "state": "Ontario",
+//    "airports": [],
 //    "weather": "Sunny",
 //    "population": 2930000
 //  },
@@ -126,6 +127,7 @@ public class Cities {
 //    "cityName": "Vancouver",
 //    "country": "Canada",
 //    "state": "British Columbia",
+//    "airports": [],
 //    "weather": "Rainy",
 //    "population": 675218
 //  },
@@ -133,6 +135,7 @@ public class Cities {
 //    "cityName": "Montreal",
 //    "country": "Canada",
 //    "state": "Quebec",
+//    "airports": [],
 //    "weather": "Snowy",
 //    "population": 1780000
 //  },
@@ -140,6 +143,7 @@ public class Cities {
 //    "cityName": "Edmonton",
 //    "country": "Canada",
 //    "state": "Alberta",
+//    "airports": [],
 //    "weather": "Windy",
 //    "population": 1012000
 //  },
@@ -147,6 +151,7 @@ public class Cities {
 //    "cityName": "Orlando",
 //    "country": "United States",
 //    "state": "Florida",
+//    "airports": [],
 //    "weather": "Clear",
 //    "population": 1239220
 //  },
@@ -154,6 +159,7 @@ public class Cities {
 //    "cityName": "Los Angeles",
 //    "country": "United States",
 //    "state": "California",
+//    "airports": [],
 //    "weather": "Sunny",
 //    "population": 3967000
 //  },
@@ -161,6 +167,7 @@ public class Cities {
 //    "cityName": "Chicago",
 //    "country": "United States",
 //    "state": "Illinois",
+//    "airports": [],
 //    "weather": "Windy",
 //    "population": 2716000
 //  },
@@ -168,6 +175,7 @@ public class Cities {
 //    "cityName": "Houston",
 //    "country": "United States",
 //    "state": "Texas",
+//    "airports": [],
 //    "weather": "Cloudy",
 //    "population": 2328000
 //  },
@@ -175,6 +183,7 @@ public class Cities {
 //    "cityName": "Phoenix",
 //    "country": "United States",
 //    "state": "Arizona",
+//    "airports": [],
 //    "weather": "Sunny",
 //    "population": 1681000
 //  },
@@ -182,6 +191,7 @@ public class Cities {
 //    "cityName": "London",
 //    "country": "United Kingdom",
 //    "state": "England",
+//    "airports": [],
 //    "weather": "Rainy",
 //    "population": 8982000
 //  }
