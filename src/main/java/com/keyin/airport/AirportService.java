@@ -48,9 +48,9 @@ public class AirportService {
         return false;
     }
 
-    public List<Airport> getAirportsByCityId(Long cityId) {
+    public Iterable<Airport> getAirportsByCityId(Long cityId) {
         if (citiesRepository.existsById(cityId)) {
-            return airportRepository.findByCityId(cityId);
+            return airportRepository.findAirportByCityName_cityId(cityId);
         }
         return List.of();
     }

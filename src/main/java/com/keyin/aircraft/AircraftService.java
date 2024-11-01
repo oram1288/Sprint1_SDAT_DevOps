@@ -5,7 +5,6 @@ import com.keyin.airport.AirportRepository;
 import com.keyin.passengers.Passengers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -52,8 +51,8 @@ public class AircraftService {
         return aircraftRepository.findById(id).map(Aircraft::getPassengers);
     }
 
-    public Iterable<Aircraft> findAircraftByAirportId(Long id) {
-        return aircraftRepository.findAircraftByAirportId(id);
+    public Iterable<Aircraft> findAircraftByAirportId(Long airportId) {
+        return aircraftRepository.findAircraftByAirports_airportId(airportId);
     }
 
 
