@@ -32,4 +32,24 @@ public class CitiesController {
         return citiesService.findByAirport(name);
     }
 
+    @GetMapping("/{cityId}")
+    public ResponseEntity<Cities> getCityById(@PathVariable Long cityId) {
+        Optional<Cities> cities = citiesService.getCityById(cityId);
+        return cities.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{cityId}")
+    public ResponseEntity<Cities> updateCity(@PathVariable Long cityId, @RequestBody Cities updatedCity) {
+        Optional<Cities> cities = Optional.ofNullable(citiesService.updateCity(cityId, updatedCity));
+        return cities.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{cityId}")
+    public ResponseEntity<Void> deleteCity(@PathVariable Long cityId) {
+        if (citiesService.deleteCity(cityId)) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
 }
