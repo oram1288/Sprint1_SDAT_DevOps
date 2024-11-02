@@ -20,7 +20,7 @@ public class PassengersController {
         return passengersService.addPassenger(passenger);
     }
 
-    @GetMapping("/findByPassengerName")
+    @GetMapping("/findByPassengerName/{passengerName}")
     public Iterable<Passengers> findByPassengerName(@RequestParam String passengerName) {
         return passengersService.findByPassengerName(passengerName);
     }

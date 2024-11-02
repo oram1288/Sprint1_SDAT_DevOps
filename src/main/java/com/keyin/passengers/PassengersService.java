@@ -16,8 +16,8 @@ public class PassengersService {
         return passengersRepository.findAll();
     }
 
-    public Iterable<Passengers> findByPassengerName(String name) {
-        return passengersRepository.findByPassengerName(name);
+    public Iterable<Passengers> findByPassengerName(String passenger_Name) {
+        return passengersRepository.findByPassengerName(passenger_Name);
     }
 
 

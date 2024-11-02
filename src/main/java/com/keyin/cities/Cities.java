@@ -114,6 +114,32 @@ public class Cities {
 // Los Angeles International Airport, Los Angeles
 // John Wayne Airport, Los Angeles
 
+//{
+//        "name": "Edmonton International Airport",
+//        "code": "YEG",
+//        "cityName": "Edmonton",
+//        "aircrafts": ["Boeing 737", "Airbus A320", "Bombardier Q400", "Embraer E175"]
+//        },
+//        {
+//        "name": "George Bush Intercontinental Airport",
+//        "code": "IAH",
+//        "cityName": "Houston",
+//        "aircrafts": ["Boeing 777", "Airbus A330", "Boeing 787", "Airbus A321"]
+//        },
+//        {
+//        "name": "Phoenix Sky Harbor International Airport",
+//        "code": "PHX",
+//        "cityName": "Phoenix",
+//        "aircrafts": ["Airbus A320", "Boeing 737", "Embraer E190", "Airbus A321"]
+//        },
+//        {
+//        "name": "Heathrow Airport",
+//        "code": "LHR",
+//        "cityName": "London",
+//        "aircrafts": ["Airbus A380", "Boeing 787", "Boeing 777", "Airbus A350"]
+//        }
+
+
 //[
 //  {
 //    "cityName": "Toronto",

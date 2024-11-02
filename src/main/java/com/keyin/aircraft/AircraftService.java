@@ -18,16 +18,16 @@ public class AircraftService {
     @Autowired
     private AirportRepository airportRepository;
 
+    public Aircraft addAircraft(Aircraft aircraft) {
+        return aircraftRepository.save(aircraft);
+    }
+
     public Iterable<Aircraft> getAllAircraft() {
         return aircraftRepository.findAll();
     }
 
     public Optional<Aircraft> getAircraftById(Long id) {
         return aircraftRepository.findById(id);
-    }
-
-    public Aircraft createAircraft(Aircraft aircraft) {
-        return aircraftRepository.save(aircraft);
     }
 
     public Optional<Aircraft> updateAircraft(Long id, Aircraft updatedAircraft) {

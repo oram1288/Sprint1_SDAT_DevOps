@@ -18,6 +18,9 @@ public class Aircraft {
     private String airlineName;
     private int numberOfPassengers;
 
+    @ManyToOne
+    private Airport airportId;
+
     @ManyToMany
     private List<Airport> airports = new ArrayList<Airport>();
 
@@ -27,10 +30,11 @@ public class Aircraft {
     // Constructors
     public Aircraft() {}
 
-    public Aircraft(String type, String airlineName, int numberOfPassengers) {
+    public Aircraft(String type, String airlineName, int numberOfPassengers, Airport airportId) {
         this.type = type;
         this.airlineName = airlineName;
         this.numberOfPassengers = numberOfPassengers;
+        this.airportId = airportId;
     }
 
     // Getters and Setters
@@ -64,6 +68,14 @@ public class Aircraft {
 
     public void setNumberOfPassengers(int numberOfPassengers) {
         this.numberOfPassengers = numberOfPassengers;
+    }
+
+    public Airport getAirportId() {
+        return airportId;
+    }
+
+    public void setAirportId(Airport airportId) {
+        this.airportId = airportId;
     }
 
     public List<Airport> getAirports() {
