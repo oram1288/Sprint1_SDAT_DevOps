@@ -15,7 +15,7 @@ public class AirportController {
     private AirportService airportService;
 
     // Get all airports
-    @GetMapping
+    @GetMapping("/listAllAirports")
     public Iterable<Airport> getAllAirports() {
         return airportService.getAllAirports();
     }
@@ -28,7 +28,7 @@ public class AirportController {
     }
 
     // Create a new airport
-    @PostMapping
+    @PostMapping("/createAirport")
     public ResponseEntity<Airport> createAirport(@RequestBody Airport airport) {
         Optional<Airport> savedAirport = airportService.createAirport(airport);
         return savedAirport.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
