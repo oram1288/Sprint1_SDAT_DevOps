@@ -1,9 +1,9 @@
 package com.keyin.passengers;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.keyin.aircraft.Aircraft;
+import jakarta.persistence.*;
+import java.util.*;
+
 
 @Entity
 public class Passengers {
@@ -15,6 +15,9 @@ public class Passengers {
     private String passengerAddress;
     private String passengerPhone;
     private String passengerEmail;
+
+    @ManyToMany
+    private List<Aircraft> aircrafts = new ArrayList<Aircraft>();
 
 
     public Passengers() {
@@ -52,8 +55,14 @@ public class Passengers {
     public void setPassengerEmail(String passengerEmail) {
         this.passengerEmail = passengerEmail;
     }
+    public List<Aircraft> getAircrafts() {
+        return aircrafts;
+    }
+    public void setAircrafts(List<Aircraft> aircrafts) {
+        this.aircrafts = aircrafts;
+    }
 
     public String toString() {
-        return "Passenger: "+ passengerName + ", ID:" + passengerID + ", Address: " + passengerAddress + ", Phone: " + passengerPhone + ", Email: " + passengerEmail;
+        return "Passenger: "+ passengerName + ", ID:" + passengerID + ", Address: " + passengerAddress + ", Phone: " + passengerPhone + ", Email: " + passengerEmail + ", Aircrafts: " + aircrafts;
     }
 }
