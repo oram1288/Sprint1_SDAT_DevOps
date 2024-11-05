@@ -10,6 +10,7 @@ import java.util.Optional;
 @RestController
 @CrossOrigin
 public class PassengersController {
+
     @Autowired
     private PassengersService passengersService;
 
@@ -24,7 +25,7 @@ public class PassengersController {
     }
 
     @GetMapping("/findByPassengerID/{passengerID}")
-    public ResponseEntity<Passengers> findByPassengerID(@PathVariable long passengerID) {
+    public ResponseEntity<Passengers> findByPassengerID(@PathVariable Long passengerID) {
         Optional<Passengers> passengers = passengersService.findByPassengerID(passengerID);
         return passengers.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -33,8 +34,6 @@ public class PassengersController {
     public Iterable<Passengers> getAircraftForPassenger(@RequestParam("ID") Long passengerID) {
         return passengersService.findByAircraftID(passengerID);
     }
-
-
 
     @PutMapping("/updatePassengerByID/{PassengerID}")
     public ResponseEntity<Passengers> updatePassenger(@PathVariable Long passengerID,@RequestBody Passengers updatedPassenger) {

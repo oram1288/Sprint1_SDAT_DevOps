@@ -1,9 +1,6 @@
 package com.keyin.passengers;
-import com.keyin.cities.Cities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -44,12 +41,10 @@ public class PassengersService {
     public boolean deletePassenger(Long passengerID) {
         if(passengersRepository.existsById(passengerID)) {
             passengersRepository.deleteById(passengerID);
-        }else{
+        } else {
             throw new RuntimeException("Passenger not found with id " + passengerID);
         }
         return false;
     }
-
-
 
 }

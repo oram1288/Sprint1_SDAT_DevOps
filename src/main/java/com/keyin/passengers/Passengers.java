@@ -4,13 +4,12 @@ import com.keyin.aircraft.Aircraft;
 import jakarta.persistence.*;
 import java.util.*;
 
-
 @Entity
 public class Passengers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int passengerID;
+    private Long passengerID;
     private String passengerName;
     private String passengerAddress;
     private String passengerPhone;
@@ -24,10 +23,10 @@ public class Passengers {
 
     }
 
-    public int getPassengerID() {
+    public Long getPassengerID() {
         return passengerID;
     }
-    public void setPassengerID(int passengerID) {
+    public void setPassengerID(Long passengerID) {
         this.passengerID = passengerID;
     }
     public String getPassengerName() {

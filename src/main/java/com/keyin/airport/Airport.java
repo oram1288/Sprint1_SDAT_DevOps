@@ -18,6 +18,7 @@ public class Airport {
 
     @ManyToOne
     private Cities cityName;
+    // private List<Cities> cities = new ArrayList<>();
 
     @ManyToMany
     private List<Aircraft> aircrafts = new ArrayList<>();
@@ -80,6 +81,7 @@ public class Airport {
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", city=" + cityName +
+                // ", city=" + (cityName != null ? cityName.getCityName() : "No city linked") +
                 '}';
     }
 }

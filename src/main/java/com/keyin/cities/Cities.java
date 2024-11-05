@@ -29,6 +29,15 @@ public class Cities {
 
     }
 
+    public Cities(String cityName, String country, String state, List<Airport> airports, String weather, String population) {
+        this.cityName = cityName;
+        this.country = country;
+        this.state = state;
+        this.airports = airports;
+        this.weather = weather;
+        this.population = population;
+    }
+
     public Long getCityId() {
         return cityId;
     }
