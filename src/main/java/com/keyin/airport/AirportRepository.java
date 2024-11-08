@@ -7,5 +7,8 @@ import org.springframework.stereotype.Repository;
 public interface AirportRepository extends CrudRepository<Airport, Long> {
     Iterable<Airport> findAirportByCityName_cityId(Long cityId);
 
+//    Iterable<Airport> findAirportByCityName_cityName(String cityName);
+
+    public Airport findByAirportId(Long airportId);
 
 }

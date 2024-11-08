@@ -51,8 +51,13 @@ public class AircraftService {
         return aircraftRepository.findById(id).map(Aircraft::getPassengers);
     }
 
-    public Iterable<Aircraft> findAircraftByAirportId(Long airportId) {
-        return aircraftRepository.findAircraftByAirports_airportId(airportId);
+    public Aircraft findByAircraftId(Long aircraftId) {
+        return aircraftRepository.findByAircraftId(aircraftId);
+
+    }
+
+    public Iterable<Aircraft> findByAirport(Long airportId) {
+        return aircraftRepository.findAircraftByAirportId_airportId(airportId);
     }
 
 

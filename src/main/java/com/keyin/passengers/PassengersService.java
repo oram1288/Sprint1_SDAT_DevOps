@@ -23,7 +23,7 @@ public class PassengersService {
     }
 
     public Iterable<Passengers> findByAircraftID(Long aircraftID) {
-        return passengersRepository.findPassengerByAircraftID(aircraftID);
+        return passengersRepository.findPassengerByAircraftId_aircraftId(aircraftID);
     }
 
     public Passengers updatePassenger(Long passengerID, Passengers updatedPassenger) {
@@ -32,7 +32,7 @@ public class PassengersService {
             passenger.setPassengerAddress(updatedPassenger.getPassengerAddress());
             passenger.setPassengerEmail(updatedPassenger.getPassengerEmail());
             passenger.setPassengerPhone(updatedPassenger.getPassengerPhone());
-            passenger.setAircrafts(updatedPassenger.getAircrafts());
+            passenger.setAircraftId(updatedPassenger.getAircraftId());
 
             return passengersRepository.save(passenger);
         }).orElseThrow(() -> new RuntimeException("Passenger not found with id " + passengerID));

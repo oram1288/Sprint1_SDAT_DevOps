@@ -12,7 +12,7 @@ public class Aircraft {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long aircraftId;
 
     private String type;
     private String airlineName;
@@ -20,6 +20,9 @@ public class Aircraft {
 
     @ManyToOne
     private Airport airportId;
+
+    @ManyToOne
+    private Passengers passengerID;
 
     @ManyToMany
     private List<Airport> airports = new ArrayList<Airport>();
@@ -38,12 +41,13 @@ public class Aircraft {
     }
 
     // Getters and Setters
-    public Long getId() {
-        return id;
+
+    public Long getAircraftId() {
+        return aircraftId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAircraftId(Long aircraftId) {
+        this.aircraftId = aircraftId;
     }
 
     public String getType() {
@@ -86,6 +90,14 @@ public class Aircraft {
         this.airports = airports;
     }
 
+    public Passengers getPassengerID() {
+        return passengerID;
+    }
+
+    public void setPassengerID(Passengers passengerID) {
+        this.passengerID = passengerID;
+    }
+
     public List<Passengers> getPassengers() {
         return passengers;
     }
@@ -98,7 +110,7 @@ public class Aircraft {
     @Override
     public String toString() {
         return "Aircraft{" +
-                "id=" + id +
+                "id=" + aircraftId +
                 ", type='" + type + '\'' +
                 ", airlineName='" + airlineName + '\'' +
                 ", numberOfPassengers=" + numberOfPassengers +

@@ -1,6 +1,7 @@
 package com.keyin.passengers;
 
 import com.keyin.aircraft.Aircraft;
+import com.keyin.airport.Airport;
 import jakarta.persistence.*;
 import java.util.*;
 
@@ -15,8 +16,11 @@ public class Passengers {
     private String passengerPhone;
     private String passengerEmail;
 
-    @ManyToMany
-    private List<Aircraft> aircrafts = new ArrayList<Aircraft>();
+    @ManyToOne
+    private Aircraft aircraftId;
+
+//    @ManyToMany
+//    private List<Aircraft> aircrafts = new ArrayList<Aircraft>();
 
 
     public Passengers() {
@@ -54,14 +58,23 @@ public class Passengers {
     public void setPassengerEmail(String passengerEmail) {
         this.passengerEmail = passengerEmail;
     }
-    public List<Aircraft> getAircrafts() {
-        return aircrafts;
-    }
-    public void setAircrafts(List<Aircraft> aircrafts) {
-        this.aircrafts = aircrafts;
+
+    public Aircraft getAircraftId() {
+        return aircraftId;
     }
 
+    public void setAircraftId(Aircraft aircraftId) {
+        this.aircraftId = aircraftId;
+    }
+
+//    public List<Aircraft> getAircrafts() {
+//        return aircrafts;
+//    }
+//    public void setAircrafts(List<Aircraft> aircrafts) {
+//        this.aircrafts = aircrafts;
+//    }
+
     public String toString() {
-        return "Passenger: "+ passengerName + ", ID:" + passengerID + ", Address: " + passengerAddress + ", Phone: " + passengerPhone + ", Email: " + passengerEmail + ", Aircrafts: " + aircrafts;
+        return "Passenger: "+ passengerName + ", ID:" + passengerID + ", Address: " + passengerAddress + ", Phone: " + passengerPhone + ", Email: " + passengerEmail;
     }
 }

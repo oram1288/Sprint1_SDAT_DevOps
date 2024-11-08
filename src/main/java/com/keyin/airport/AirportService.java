@@ -52,4 +52,8 @@ public class AirportService {
         }
         return List.of();
     }
+
+    public Airport findByAirportId(Long airportId) {
+        return airportRepository.findByAirportId(airportId);
+    }
 }

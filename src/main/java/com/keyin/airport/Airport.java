@@ -18,7 +18,7 @@ public class Airport {
 
     @ManyToOne
     private Cities cityName;
-    // private List<Cities> cities = new ArrayList<>();
+    // private List<Cities> cities
 
     @ManyToMany
     private List<Aircraft> aircrafts = new ArrayList<>();

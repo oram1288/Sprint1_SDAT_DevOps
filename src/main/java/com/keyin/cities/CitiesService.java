@@ -46,4 +46,9 @@ public class CitiesService {
         return false;
     }
 
+    public Cities findByCityName(String cityName) {
+        return citiesRepository.findByCityName(cityName);
+
+    }
+
 }
