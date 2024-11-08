@@ -1,6 +1,7 @@
 package com.keyin.airport;
 
 import com.keyin.cities.Cities;
+import com.keyin.cities.CitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +16,33 @@ public class AirportController {
     @Autowired
     private AirportService airportService;
 
+    @Autowired
+    private CitiesService citiesService;
+
     // Add a new airport
     @PostMapping("/addNewAirport")
     public Airport addNewAirport(@RequestBody Airport airport) {
 
+        Optional<Cities> cityOptional = Optional.ofNullable(citiesService.findByCityName(airport.getCityName().getCityName()));
+
+        Cities cities;
+        if (cityOptional.isPresent()) {
+            cities = cityOptional.get();
+        } else {
+            // Save the new city if it doesn't exist
+            cities = airport.getCityName();
+            citiesService.addCity(cities);
+        }
+
+        airport.setCityName(cities); // Set the persisted city on the book
+
         return airportService.addAirport(airport);
     }
 
-    // Get all airports
     @GetMapping("/listAllAirports")
-    public Iterable<Airport> getAllAirports() {
-        return airportService.getAllAirports();
+    public ResponseEntity<Iterable<Airport>> getAllAirports() {
+        airportService.getAllAirports();
+        return ResponseEntity.ok().body(airportService.getAllAirports());
     }
 
     // Get an airport by ID
@@ -37,8 +54,8 @@ public class AirportController {
 
     // Update an airport
     @PutMapping("/updateAirportById/{airportId}")
-    public ResponseEntity<Airport> updateAirport(@PathVariable Long id, @RequestBody Airport updatedAirport) {
-        Optional<Airport> airport = airportService.updateAirport(id, updatedAirport);
+    public ResponseEntity<Airport> updateAirport(@PathVariable Long airportId, @RequestBody Airport updatedAirport) {
+        Optional<Airport> airport = airportService.updateAirport(airportId, updatedAirport);
         return airport.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -52,7 +69,7 @@ public class AirportController {
     }
 
     // Get airports by city ID
-    @GetMapping("/city/{cityId}")
+    @GetMapping("/getAirportsByCityId/{cityId}")
     public ResponseEntity<Iterable<Airport>> getAirportsByCity(@PathVariable Long cityId) {
         Iterable<Airport> airports = airportService.getAirportsByCityId(cityId);
         if (airports.iterator().hasNext()) {

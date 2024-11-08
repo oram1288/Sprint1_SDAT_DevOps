@@ -1,6 +1,8 @@
 package com.keyin.aircraft;
 
 import com.keyin.airport.Airport;
+import com.keyin.airport.AirportService;
+import com.keyin.cities.Cities;
 import com.keyin.passengers.Passengers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +18,25 @@ public class AircraftController {
     @Autowired
     private AircraftService aircraftService;
 
-    // Add a new airport
+    @Autowired
+    private AirportService airportService;
+
+    // Add a new aircraft
     @PostMapping("/addNewAircraft")
     public Aircraft addNewAircraft(@RequestBody Aircraft aircraft) {
+
+        Optional<Airport> airportOptional = Optional.ofNullable(airportService.findByAirportId(aircraft.getAirportId().getAirportId()));
+
+        Airport airport;
+        if (airportOptional.isPresent()) {
+            airport = airportOptional.get();
+        } else {
+            // Save the new airport if it doesn't exist
+            airport = aircraft.getAirportId();
+            airportService.addAirport(airport);
+        }
+
+        aircraft.setAirportId(airport); // Set the persisted airport on the book
 
         return aircraftService.addAircraft(aircraft);
     }
@@ -53,9 +71,9 @@ public class AircraftController {
     }
 
     // Get passengers on an aircraft by aircraft ID
-    @GetMapping("/{id}/passengers")
-    public ResponseEntity<List<Passengers>> getPassengersByAircraft(@PathVariable Long id) {
-        Optional<List<Passengers>> passengers = aircraftService.getPassengersByAircraft(id);
+    @GetMapping("/getPassengersByAircraftId/{aircraftId}")
+    public ResponseEntity<List<Passengers>> getPassengersByAircraft(@PathVariable Long aircraftId) {
+        Optional<List<Passengers>> passengers = aircraftService.getPassengersByAircraft(aircraftId);
         return passengers.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 

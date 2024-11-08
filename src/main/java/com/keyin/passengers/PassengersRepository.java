@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PassengersRepository extends CrudRepository<Passengers, Long> {
-    Iterable<Passengers> findPassengerByAircraftID(Long aircraftID);
+    Iterable<Passengers> findPassengerByAircraftId_aircraftId(Long aircraftId);
     Optional<Passengers> findByPassengerID(Long passengerID);
 }
