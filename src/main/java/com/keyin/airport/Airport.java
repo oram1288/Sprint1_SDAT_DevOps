@@ -16,11 +16,11 @@ public class Airport {
     private String name;
     private String code;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Cities cityName;
     // private List<Cities> cities
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Aircraft> aircrafts = new ArrayList<>();
 
     // Constructors

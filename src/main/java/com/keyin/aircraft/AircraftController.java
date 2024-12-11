@@ -55,16 +55,16 @@ public class AircraftController {
     }
 
     // Update an aircraft
-    @PutMapping("/updateAircraftById/{id}")
-    public ResponseEntity<Aircraft> updateAircraft(@PathVariable Long id, @RequestBody Aircraft updatedAircraft) {
-        Optional<Aircraft> aircraft = aircraftService.updateAircraft(id, updatedAircraft);
+    @PutMapping("/updateAircraftById/{aircraftId}")
+    public ResponseEntity<Aircraft> updateAircraft(@PathVariable Long aircraftId, @RequestBody Aircraft updatedAircraft) {
+        Optional<Aircraft> aircraft = aircraftService.updateAircraft(aircraftId, updatedAircraft);
         return aircraft.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Delete an aircraft
-    @DeleteMapping("/deleteAircraftById/{id}")
-    public ResponseEntity<Void> deleteAircraft(@PathVariable Long id) {
-        if (aircraftService.deleteAircraft(id)) {
+    @DeleteMapping("/deleteAircraftById/{aircraftId}")
+    public ResponseEntity<Void> deleteAircraft(@PathVariable Long aircraftId) {
+        if (aircraftService.deleteAircraft(aircraftId)) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();

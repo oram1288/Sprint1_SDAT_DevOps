@@ -18,7 +18,7 @@ public class Cities {
 
     private String state;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Airport> airports = new ArrayList<Airport>();
 
     private String weather;
@@ -112,16 +112,16 @@ public class Cities {
 // Billy Bishop Toronto City Airport, Toronto
 
 // Chicago Midway International Airport, Chicago
-// Chicago O'Hare International Airport, Chicago
+// ORD - Chicago O'Hare International Airport, Chicago
 
-// Melbourne Orlando International Airport, Orlando
-// Orlando International Airport, Orlando
+// MLB - Melbourne Orlando International Airport, Orlando
+// MCO - Orlando International Airport, Orlando
 
 // Montréal–Trudeau International Airport, Montreal
 // MET – Montreal Metropolitan Airport, Montreal
 
-// Los Angeles International Airport, Los Angeles
-// John Wayne Airport, Los Angeles
+// LAX - Los Angeles International Airport, Los Angeles
+// SNA - John Wayne Airport, Los Angeles
 
 //{
 //        "name": "Edmonton International Airport",

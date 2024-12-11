@@ -16,7 +16,7 @@ public class Passengers {
     private String passengerPhone;
     private String passengerEmail;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Aircraft aircraftId;
 
 //    @ManyToMany

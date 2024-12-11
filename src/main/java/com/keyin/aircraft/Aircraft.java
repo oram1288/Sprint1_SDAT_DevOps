@@ -18,16 +18,16 @@ public class Aircraft {
     private String airlineName;
     private int numberOfPassengers;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Airport airportId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Passengers passengerID;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Airport> airports = new ArrayList<Airport>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Passengers> passengers = new ArrayList<>();
 
     // Constructors

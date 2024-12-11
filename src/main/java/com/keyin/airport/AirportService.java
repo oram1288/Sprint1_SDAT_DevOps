@@ -29,8 +29,8 @@ public class AirportService {
         return airportRepository.findById(airportId);
     }
 
-    public Optional<Airport> updateAirport(Long id, Airport updatedAirport) {
-        return airportRepository.findById(id).map(airport -> {
+    public Optional<Airport> updateAirport(Long airportId, Airport updatedAirport) {
+        return airportRepository.findById(airportId).map(airport -> {
             airport.setName(updatedAirport.getName());
             airport.setCode(updatedAirport.getCode());
             airport.setCityName(updatedAirport.getCityName());
@@ -38,9 +38,9 @@ public class AirportService {
         });
     }
 
-    public boolean deleteAirport(Long id) {
-        if (airportRepository.existsById(id)) {
-            airportRepository.deleteById(id);
+    public boolean deleteAirport(Long airportId) {
+        if (airportRepository.existsById(airportId)) {
+            airportRepository.deleteById(airportId);
             return true;
         }
         return false;
