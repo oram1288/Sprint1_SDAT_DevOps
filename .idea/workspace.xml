@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="Passenger Test" />
     <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="Updated code and final fixes">
       <change afterPath="$PROJECT_DIR$/src/test/java/com/keyin/CityTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -59,6 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "PassengerTest",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -152,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733883382766</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Passenger Test">
+      <option name="closed" value="true" />
+      <created>1734043813180</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734043813180</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +184,8 @@
     <MESSAGE value="Repo-Service-Controller commit" />
     <MESSAGE value="fixes" />
     <MESSAGE value="update" />
-    <MESSAGE value="Updated code and final fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated code and final fixes" />
+    <MESSAGE value="Updated code and fixes" />
+    <MESSAGE value="Passenger Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passenger Test" />
   </component>
 </project>
