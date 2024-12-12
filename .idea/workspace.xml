@@ -72,10 +72,25 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.passengers in Sprint1_SDAT_DevOps">
+  <component name="RunManager" selected="Application.RestServiceApplication">
     <configuration name="RestServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.keyin.RestServiceApplication" />
       <module name="Sprint1_SDAT_DevOps" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PassengersRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sprint1_SDAT_DevOps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keyin.passengers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keyin.passengers" />
+      <option name="MAIN_CLASS_NAME" value="com.keyin.passengers.PassengersRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -90,8 +105,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
         <item itemvalue="Application.RestServiceApplication" />
+        <item itemvalue="JUnit.PassengersRepositoryTest" />
+        <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
       </list>
     </recent_temporary>
   </component>
