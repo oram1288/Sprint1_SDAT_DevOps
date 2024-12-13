@@ -36,12 +36,12 @@
     &quot;assignee&quot;: &quot;oram1288&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/oram1288/Sprint1_SDAT_DevOps.git",
-    "accountId": "837e0dcc-b50b-47e5-a636-735c91b44997"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/oram1288/Sprint1_SDAT_DevOps.git&quot;,
+    &quot;accountId&quot;: &quot;837e0dcc-b50b-47e5-a636-735c91b44997&quot;
   }
-}]]></component>
+}</component>
   <component name="JavaAutoRunManager">
     <enabled-run-configurations>
       <run-configuration type="JUnit" name="AirportTest" />
@@ -56,50 +56,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.RestServiceApplication.executor": "Debug",
-    "JUnit.AircraftTest (1).executor": "Run",
-    "JUnit.AircraftTest.executor": "Run",
-    "JUnit.AirportTest.executor": "Run",
-    "JUnit.CityTest.executor": "Run",
-    "Maven.Sprint1_SDAT_DevOps [clean].executor": "Run",
-    "Maven.Sprint1_SDAT_DevOps [install].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="RunManager" selected="JUnit.AircraftTest (1)">
-    <configuration name="AircraftTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sprint1_SDAT_DevOps" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.keyin.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.keyin" />
-      <option name="MAIN_CLASS_NAME" value="com.keyin.AircraftTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AircraftTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.RestServiceApplication.executor&quot;: &quot;Debug&quot;,
@@ -123,8 +79,7 @@
 }</component>
   <component name="RunManager" selected="Application.RestServiceApplication">
     <configuration name="RestServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.keyin.RestServiceApplication" />
-
+      <option name="MAIN_CLASS_NAME" value="com.keyin.aircraft.AircraftTest" />
       <module name="Sprint1_SDAT_DevOps" />
       <extension name="coverage">
         <pattern>
@@ -132,9 +87,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.keyin.aircraft" />
-      <option name="MAIN_CLASS_NAME" value="com.keyin.aircraft.AircraftTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -208,16 +160,12 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AircraftTest (1)" />
         <item itemvalue="JUnit.AirportTest" />
-        <item itemvalue="JUnit.AircraftTest" />
         <item itemvalue="JUnit.AirportTest (1)" />
         <item itemvalue="JUnit.CityTest" />
-
         <item itemvalue="Application.RestServiceApplication" />
         <item itemvalue="JUnit.PassengersRepositoryTest" />
         <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
-
       </list>
     </recent_temporary>
   </component>
