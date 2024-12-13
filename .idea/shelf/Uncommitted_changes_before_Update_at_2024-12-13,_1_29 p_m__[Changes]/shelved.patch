@@ -1,0 +1,170 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># This File is how we set up the connection to our database\nspring.jpa.hibernate.ddl-auto=update\n#spring.datasource.url=jdbc:mysql://s4-fall-2022.ce2vcezehro2.us-east-1.rds.amazonaws.com/fall_2022\nspring.datasource.url=jdbc:mysql://localhost:3306/Sprint2\nspring.datasource.username=root\nspring.datasource.password=kyle1234\nspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver\nspring.jpa.show-sql=true
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision a5991dd4662efbde7fcda4d4496985d02e21a76d)
++++ b/src/main/resources/application.properties	(date 1734045027570)
+@@ -1,8 +1,8 @@
+ # This File is how we set up the connection to our database
+ spring.jpa.hibernate.ddl-auto=update
+ #spring.datasource.url=jdbc:mysql://s4-fall-2022.ce2vcezehro2.us-east-1.rds.amazonaws.com/fall_2022
+-spring.datasource.url=jdbc:mysql://localhost:3306/Sprint2
++spring.datasource.url=jdbc:mysql://localhost:3306/sprint2_airport
+ spring.datasource.username=root
+-spring.datasource.password=kyle1234
++spring.datasource.password=Keyin2024
+ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+ spring.jpa.show-sql=true
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"4078cfcf-94c1-416c-8a08-a95bbc508eaf\" name=\"Changes\" comment=\"Updated code and final fixes\">\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/com/keyin/CityTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Cities-update\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;oram1288&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/oram1288/Sprint1_SDAT_DevOps.git&quot;,\n    &quot;accountId&quot;: &quot;79b73629-f525-4441-be62-01774c7f65e0&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 4\n}</component>\n  <component name=\"ProjectId\" id=\"2nkpef7QnGLvBE8XLmGATPynSd7\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.RestServiceApplication.executor&quot;: &quot;Debug&quot;,\n    &quot;Maven.Sprint1_SDAT_DevOps [clean].executor&quot;: &quot;Run&quot;,\n    &quot;Maven.Sprint1_SDAT_DevOps [install].executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"Application.RestServiceApplication\">\n    <configuration name=\"RestServiceApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.keyin.RestServiceApplication\" />\n      <module name=\"Sprint1_SDAT_DevOps\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"PassengersRepositoryTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Sprint1_SDAT_DevOps\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.keyin.passengers.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.keyin.passengers\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.keyin.passengers.PassengersRepositoryTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"passengers in Sprint1_SDAT_DevOps\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Sprint1_SDAT_DevOps\" />\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\n      <dir value=\"$PROJECT_DIR$/src/test/java/com/keyin/passengers\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.RestServiceApplication\" />\n        <item itemvalue=\"JUnit.PassengersRepositoryTest\" />\n        <item itemvalue=\"JUnit.passengers in Sprint1_SDAT_DevOps\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"4078cfcf-94c1-416c-8a08-a95bbc508eaf\" name=\"Changes\" comment=\"\" />\n      <created>1729527027504</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1729527027504</updated>\n      <workItem from=\"1730126900958\" duration=\"1135000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"aircraft commit - Reagan\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1730134659060</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1730134659061</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"fixes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1730135285783</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1730135285783</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"fixes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1730226137710</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1730226137710</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1730487028283</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1730487028283</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1730488390762</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1730488390762</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"update\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1730560724360</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1730560724360</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Updated code and final fixes\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1733883382766</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1733883382766</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"8\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"aircraft commit - Reagan\" />\n    <MESSAGE value=\"Repo-Service-Controller commit\" />\n    <MESSAGE value=\"fixes\" />\n    <MESSAGE value=\"update\" />\n    <MESSAGE value=\"Updated code and final fixes\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated code and final fixes\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision a5991dd4662efbde7fcda4d4496985d02e21a76d)
++++ b/.idea/workspace.xml	(date 1734105004160)
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="Updated code and final fixes">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/com/keyin/CityTest.java" afterDir="false" />
++    <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -28,7 +28,6 @@
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+   &quot;lastFilter&quot;: {
+@@ -51,31 +50,49 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.RestServiceApplication.executor&quot;: &quot;Debug&quot;,
+-    &quot;Maven.Sprint1_SDAT_DevOps [clean].executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.Sprint1_SDAT_DevOps [install].executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.RestServiceApplication.executor": "Debug",
++    "JUnit.CityTest.executor": "Debug",
++    "JUnit.PassengersRepositoryTest.executor": "Run",
++    "JUnit.passengers in Sprint1_SDAT_DevOps.executor": "Debug",
++    "Maven.Sprint1_SDAT_DevOps [clean].executor": "Run",
++    "Maven.Sprint1_SDAT_DevOps [install].executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "main",
++    "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager" selected="Application.RestServiceApplication">
+     <configuration name="RestServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.keyin.RestServiceApplication" />
+       <module name="Sprint1_SDAT_DevOps" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="CityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="Sprint1_SDAT_DevOps" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.keyin.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.keyin" />
++      <option name="MAIN_CLASS_NAME" value="com.keyin.CityTest" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -106,8 +123,9 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.RestServiceApplication" />
++        <item itemvalue="JUnit.CityTest" />
++        <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
+         <item itemvalue="JUnit.PassengersRepositoryTest" />
+-        <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -177,7 +195,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1733883382766</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="update">
++      <option name="closed" value="true" />
++      <created>1734044782167</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1734044782167</updated>
++    </task>
++    <task id="LOCAL-00009" summary="update">
++      <option name="closed" value="true" />
++      <created>1734044952432</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1734044952432</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -198,8 +232,8 @@
+     <MESSAGE value="aircraft commit - Reagan" />
+     <MESSAGE value="Repo-Service-Controller commit" />
+     <MESSAGE value="fixes" />
+-    <MESSAGE value="update" />
+     <MESSAGE value="Updated code and final fixes" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Updated code and final fixes" />
++    <MESSAGE value="update" />
++    <option name="LAST_COMMIT_MESSAGE" value="update" />
+   </component>
+ </project>
+\ No newline at end of file
