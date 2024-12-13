@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="Updated code and final fixes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/keyin/CityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +36,17 @@
     &quot;assignee&quot;: &quot;oram1288&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/oram1288/Sprint1_SDAT_DevOps.git&quot;,
-    &quot;accountId&quot;: &quot;79b73629-f525-4441-be62-01774c7f65e0&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/oram1288/Sprint1_SDAT_DevOps.git",
+    "accountId": "837e0dcc-b50b-47e5-a636-735c91b44997"
   }
-}</component>
+}]]></component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="AirportTest" />
+    </enabled-run-configurations>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -54,6 +59,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.RestServiceApplication.executor": "Debug",
+    "JUnit.AircraftTest (1).executor": "Run",
+    "JUnit.AircraftTest.executor": "Run",
+    "JUnit.AirportTest.executor": "Run",
+    "JUnit.CityTest.executor": "Run",
     "Maven.Sprint1_SDAT_DevOps [clean].executor": "Run",
     "Maven.Sprint1_SDAT_DevOps [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -72,19 +81,98 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="RestServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.keyin.RestServiceApplication" />
+  <component name="RunManager" selected="JUnit.AircraftTest (1)">
+    <configuration name="AircraftTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sprint1_SDAT_DevOps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keyin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keyin" />
+      <option name="MAIN_CLASS_NAME" value="com.keyin.AircraftTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AircraftTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sprint1_SDAT_DevOps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keyin.aircraft.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keyin.aircraft" />
+      <option name="MAIN_CLASS_NAME" value="com.keyin.aircraft.AircraftTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AirportTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keyin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keyin" />
+      <option name="MAIN_CLASS_NAME" value="com.keyin.AirportTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AirportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sprint1_SDAT_DevOps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keyin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keyin" />
+      <option name="MAIN_CLASS_NAME" value="com.keyin.AirportTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sprint1_SDAT_DevOps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.keyin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.keyin" />
+      <option name="MAIN_CLASS_NAME" value="com.keyin.CityTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RestServiceApplication" />
+        <item itemvalue="JUnit.AircraftTest (1)" />
+        <item itemvalue="JUnit.AirportTest" />
+        <item itemvalue="JUnit.AircraftTest" />
+        <item itemvalue="JUnit.AirportTest (1)" />
+        <item itemvalue="JUnit.CityTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -95,6 +183,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729527027504</updated>
       <workItem from="1730126900958" duration="1135000" />
+      <workItem from="1734044527074" duration="13660000" />
     </task>
     <task id="LOCAL-00001" summary="aircraft commit - Reagan">
       <option name="closed" value="true" />
