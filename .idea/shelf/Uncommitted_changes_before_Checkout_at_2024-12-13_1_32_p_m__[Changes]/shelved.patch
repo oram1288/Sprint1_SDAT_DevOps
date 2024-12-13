@@ -1,0 +1,295 @@
+Index: src/test/java/com/keyin/passengers/PassengersControllerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.keyin.passengers;\r\n\r\nimport com.keyin.aircraft.Aircraft;\r\nimport com.keyin.aircraft.AircraftService;\r\nimport org.junit.jupiter.api.BeforeEach;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.junit.jupiter.api.extension.ExtendWith;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\r\nimport org.springframework.boot.test.context.SpringBootTest;\r\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\r\nimport org.springframework.test.web.servlet.MockMvc;\r\nimport org.springframework.http.MediaType;\r\n\r\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;\r\nimport static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;\r\n\r\n@ExtendWith(SpringExtension.class)\r\n@SpringBootTest\r\n@AutoConfigureMockMvc\r\npublic class PassengersControllerTest {\r\n\r\n    @Autowired\r\n    private MockMvc mockMvc;\r\n\r\n    @Autowired\r\n    private PassengersRepository passengersRepository;\r\n\r\n    @Autowired\r\n    private AircraftService aircraftService;\r\n\r\n    @BeforeEach\r\n    public void setup() {\r\n        // Clear any existing data in the repository before each test\r\n        passengersRepository.deleteAll();\r\n    }\r\n\r\n    @Test\r\n    public void testCreatePassenger() throws Exception {\r\n        // Create a new passenger and aircraft\r\n        Aircraft aircraft = new Aircraft();\r\n        aircraft.setType(\"Boeing 737\");\r\n        aircraft.setAirlineName(\"Boeing\");\r\n        aircraftService.addAircraft(aircraft);\r\n\r\n        String passengerJson = \"{ \\\"passengerName\\\": \\\"John Doe\\\", \\\"passengerAddress\\\": \\\"123 Main St\\\", \\\"passengerPhone\\\": \\\"555-1234\\\", \\\"passengerEmail\\\": \\\"john@example.com\\\", \\\"aircraftId\\\": {\\\"aircraftId\\\": \\\"1\\\"}}\";\r\n\r\n        mockMvc.perform(post(\"/addNewPassenger\")\r\n                        .contentType(MediaType.APPLICATION_JSON)\r\n                        .content(passengerJson))\r\n                .andExpect(status().isOk())\r\n                .andExpect(jsonPath(\"$.passengerName\").value(\"John Doe\"));\r\n    }\r\n\r\n    @Test\r\n    public void testGetAllPassengers() throws Exception {\r\n        // Add a sample passenger\r\n        Aircraft aircraft = new Aircraft();\r\n        aircraft.setType(\"Airbus A320\");\r\n        aircraft.setAirlineName(\"Airbus\");\r\n        aircraftService.addAircraft(aircraft);\r\n\r\n        Passengers passenger = new Passengers();\r\n        passenger.setPassengerName(\"Jane Doe\");\r\n        passenger.setPassengerAddress(\"456 Oak St\");\r\n        passenger.setPassengerPhone(\"555-6789\");\r\n        passenger.setPassengerEmail(\"jane@example.com\");\r\n        passenger.setAircraftId(aircraft);\r\n        passengersRepository.save(passenger);\r\n\r\n        mockMvc.perform(get(\"/getAllPassengers\"))\r\n                .andExpect(status().isOk())\r\n                .andExpect(jsonPath(\"$[0].passengerName\").value(\"Jane Doe\"));\r\n    }\r\n\r\n    @Test\r\n    public void testDeletePassenger() throws Exception {\r\n        // Add a sample passenger\r\n        Aircraft aircraft = new Aircraft();\r\n        aircraft.setType(\"Boeing 747\");\r\n        aircraft.setAirlineName(\"Boeing\");\r\n        aircraftService.addAircraft(aircraft);\r\n\r\n        Passengers passenger = new Passengers();\r\n        passenger.setPassengerName(\"Alice\");\r\n        passenger.setPassengerAddress(\"789 Pine St\");\r\n        passenger.setPassengerPhone(\"555-9876\");\r\n        passenger.setPassengerEmail(\"alice@example.com\");\r\n        passenger.setAircraftId(aircraft);\r\n        passengersRepository.save(passenger);\r\n\r\n        mockMvc.perform(delete(\"/deletePassengerByID/\" + passenger.getPassengerID()))\r\n                .andExpect(status().isNoContent());\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/keyin/passengers/PassengersControllerTest.java b/src/test/java/com/keyin/passengers/PassengersControllerTest.java
+--- a/src/test/java/com/keyin/passengers/PassengersControllerTest.java	(revision a5991dd4662efbde7fcda4d4496985d02e21a76d)
++++ b/src/test/java/com/keyin/passengers/PassengersControllerTest.java	(date 1734109117982)
+@@ -1,10 +1,14 @@
+ package com.keyin.passengers;
+ 
+ import com.keyin.aircraft.Aircraft;
++import com.keyin.aircraft.AircraftRepository;
+ import com.keyin.aircraft.AircraftService;
++import com.keyin.cities.Cities;
+ import org.junit.jupiter.api.BeforeEach;
+ import org.junit.jupiter.api.Test;
+ import org.junit.jupiter.api.extension.ExtendWith;
++import org.mockito.InjectMocks;
++import org.mockito.Mock;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+ import org.springframework.boot.test.context.SpringBootTest;
+@@ -12,6 +16,11 @@
+ import org.springframework.test.web.servlet.MockMvc;
+ import org.springframework.http.MediaType;
+ 
++
++import java.util.ArrayList;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++import static org.mockito.Mockito.*;
+ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+ 
+@@ -23,11 +32,16 @@
+     @Autowired
+     private MockMvc mockMvc;
+ 
+-    @Autowired
++    @Mock
+     private PassengersRepository passengersRepository;
+ 
++    @InjectMocks
++    private PassengersService passengersService;
++
+     @Autowired
+     private AircraftService aircraftService;
++    @Autowired
++    private AircraftRepository aircraftRepository;
+ 
+     @BeforeEach
+     public void setup() {
+@@ -35,22 +49,43 @@
+         passengersRepository.deleteAll();
+     }
+ 
++//    @Test
++//    public void testCreatePassenger() throws Exception {
++//        // Create a new passenger and aircraft
++//        Aircraft aircraft = new Aircraft();
++//        aircraft.setType("Boeing 200");
++//        aircraft.setAirlineName("Boeing");
++//        aircraftService.addAircraft(aircraft);
++//
++//        String passengerJson = "{ \"passengerName\": \"John Doe\", \"passengerAddress\": \"123 Main St\", \"passengerPhone\": \"555-1234\", \"passengerEmail\": \"john@example.com\", \"aircraftId\": { \"aircraftId\": \"1L\"}}";
++//
++//        mockMvc.perform(post("/addNewPassenger")
++//                        .contentType(MediaType.APPLICATION_JSON)
++//                        .content(passengerJson))
++//                .andExpect(jsonPath("$.passengerName").value("John Doe"))
++//                .andExpect(status().isOk());
++//
++//    }
+     @Test
+-    public void testCreatePassenger() throws Exception {
+-        // Create a new passenger and aircraft
++     void testCreatePassenger() throws Exception {
+         Aircraft aircraft = new Aircraft();
+-        aircraft.setType("Boeing 737");
+-        aircraft.setAirlineName("Boeing");
+-        aircraftService.addAircraft(aircraft);
++        aircraft.setAircraftId(1L);
++        Passengers passenger = new Passengers();
++        passenger.setPassengerID(1L);
++        passenger.setPassengerName("Kyle");
++        passenger.setPassengerEmail("kyle@x");
++        passenger.setPassengerPhone("1234556");
++        passenger.setPassengerAddress("123 Main St");
++        passenger.setAircraftId(aircraft);
+ 
+-        String passengerJson = "{ \"passengerName\": \"John Doe\", \"passengerAddress\": \"123 Main St\", \"passengerPhone\": \"555-1234\", \"passengerEmail\": \"john@example.com\", \"aircraftId\": {\"aircraftId\": \"1\"}}";
++        when(passengersRepository.save(passenger)).thenReturn(passenger);
+ 
+-        mockMvc.perform(post("/addNewPassenger")
+-                        .contentType(MediaType.APPLICATION_JSON)
+-                        .content(passengerJson))
+-                .andExpect(status().isOk())
+-                .andExpect(jsonPath("$.passengerName").value("John Doe"));
+-    }
++        Passengers result = passengersService.addPassenger(passenger);
++
++        assertEquals("Kyle", result.getPassengerName());
++        assertEquals("123 Main St", result.getPassengerAddress());
++        verify(passengersRepository, times(1)).save(passenger);
++     }
+ 
+     @Test
+     public void testGetAllPassengers() throws Exception {
+@@ -61,16 +96,16 @@
+         aircraftService.addAircraft(aircraft);
+ 
+         Passengers passenger = new Passengers();
+-        passenger.setPassengerName("Jane Doe");
++        passenger.setPassengerName("Samuel Johnson");
+         passenger.setPassengerAddress("456 Oak St");
+         passenger.setPassengerPhone("555-6789");
+-        passenger.setPassengerEmail("jane@example.com");
++        passenger.setPassengerEmail("sam@example.com");
+         passenger.setAircraftId(aircraft);
+         passengersRepository.save(passenger);
+ 
+         mockMvc.perform(get("/getAllPassengers"))
+                 .andExpect(status().isOk())
+-                .andExpect(jsonPath("$[0].passengerName").value("Jane Doe"));
++                .andExpect(jsonPath("$[0].passengerName").value("Samuel Johnson"));
+     }
+ 
+     @Test
+Index: src/main/java/com/keyin/passengers/Passengers.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.keyin.passengers;\r\n\r\nimport com.keyin.aircraft.Aircraft;\r\nimport com.keyin.airport.Airport;\r\nimport jakarta.persistence.*;\r\nimport java.util.*;\r\n\r\n@Entity\r\npublic class Passengers {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long passengerID;\r\n    private String passengerName;\r\n    private String passengerAddress;\r\n    private String passengerPhone;\r\n    private String passengerEmail;\r\n\r\n    @ManyToOne(cascade = CascadeType.ALL)\r\n    private Aircraft aircraftId;\r\n\r\n//    @ManyToMany\r\n//    private List<Aircraft> aircrafts = new ArrayList<Aircraft>();\r\n\r\n\r\n    public Passengers() {\r\n\r\n    }\r\n\r\n    public Long getPassengerID() {\r\n        return passengerID;\r\n    }\r\n    public void setPassengerID(Long passengerID) {\r\n        this.passengerID = passengerID;\r\n    }\r\n    public String getPassengerName() {\r\n        return passengerName;\r\n    }\r\n    public void setPassengerName(String passengerName) {\r\n        this.passengerName = passengerName;\r\n    }\r\n    public String getPassengerAddress() {\r\n        return passengerAddress;\r\n    }\r\n    public void setPassengerAddress(String passengerAddress) {\r\n        this.passengerAddress = passengerAddress;\r\n    }\r\n    public String getPassengerPhone() {\r\n        return passengerPhone;\r\n    }\r\n    public void setPassengerPhone(String passengerPhone) {\r\n        this.passengerPhone = passengerPhone;\r\n    }\r\n\r\n    public String getPassengerEmail() {\r\n        return passengerEmail;\r\n    }\r\n    public void setPassengerEmail(String passengerEmail) {\r\n        this.passengerEmail = passengerEmail;\r\n    }\r\n\r\n    public Aircraft getAircraftId() {\r\n        return aircraftId;\r\n    }\r\n\r\n    public void setAircraftId(Aircraft aircraftId) {\r\n        this.aircraftId = aircraftId;\r\n    }\r\n\r\n//    public List<Aircraft> getAircrafts() {\r\n//        return aircrafts;\r\n//    }\r\n//    public void setAircrafts(List<Aircraft> aircrafts) {\r\n//        this.aircrafts = aircrafts;\r\n//    }\r\n\r\n    public String toString() {\r\n        return \"Passenger: \"+ passengerName + \", ID:\" + passengerID + \", Address: \" + passengerAddress + \", Phone: \" + passengerPhone + \", Email: \" + passengerEmail;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/keyin/passengers/Passengers.java b/src/main/java/com/keyin/passengers/Passengers.java
+--- a/src/main/java/com/keyin/passengers/Passengers.java	(revision a5991dd4662efbde7fcda4d4496985d02e21a76d)
++++ b/src/main/java/com/keyin/passengers/Passengers.java	(date 1734105712793)
+@@ -16,7 +16,7 @@
+     private String passengerPhone;
+     private String passengerEmail;
+ 
+-    @ManyToOne(cascade = CascadeType.ALL)
++    @ManyToOne(cascade = CascadeType.MERGE)
+     private Aircraft aircraftId;
+ 
+ //    @ManyToMany
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_22\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision a5991dd4662efbde7fcda4d4496985d02e21a76d)
++++ b/.idea/misc.xml	(date 1734104382722)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4078cfcf-94c1-416c-8a08-a95bbc508eaf\" name=\"Changes\" comment=\"Updated code and final fixes\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/com/keyin/CityTest.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"Cities-update\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;oram1288&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/oram1288/Sprint1_SDAT_DevOps.git&quot;,\r\n    &quot;accountId&quot;: &quot;79b73629-f525-4441-be62-01774c7f65e0&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2nkpef7QnGLvBE8XLmGATPynSd7\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.RestServiceApplication.executor&quot;: &quot;Debug&quot;,\r\n    &quot;Maven.Sprint1_SDAT_DevOps [clean].executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.Sprint1_SDAT_DevOps [install].executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.RestServiceApplication\">\r\n    <configuration name=\"RestServiceApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.keyin.RestServiceApplication\" />\r\n      <module name=\"Sprint1_SDAT_DevOps\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PassengersRepositoryTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Sprint1_SDAT_DevOps\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.keyin.passengers.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.keyin.passengers\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.keyin.passengers.PassengersRepositoryTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"passengers in Sprint1_SDAT_DevOps\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Sprint1_SDAT_DevOps\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/com/keyin/passengers\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.RestServiceApplication\" />\r\n        <item itemvalue=\"JUnit.PassengersRepositoryTest\" />\r\n        <item itemvalue=\"JUnit.passengers in Sprint1_SDAT_DevOps\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4078cfcf-94c1-416c-8a08-a95bbc508eaf\" name=\"Changes\" comment=\"\" />\r\n      <created>1729527027504</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1729527027504</updated>\r\n      <workItem from=\"1730126900958\" duration=\"1135000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"aircraft commit - Reagan\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730134659060</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730134659061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"fixes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730135285783</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730135285783</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"fixes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730226137710</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730226137710</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730487028283</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730487028283</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730488390762</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730488390762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730560724360</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730560724360</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Updated code and final fixes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1733883382766</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1733883382766</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"aircraft commit - Reagan\" />\r\n    <MESSAGE value=\"Repo-Service-Controller commit\" />\r\n    <MESSAGE value=\"fixes\" />\r\n    <MESSAGE value=\"update\" />\r\n    <MESSAGE value=\"Updated code and final fixes\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated code and final fixes\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision a5991dd4662efbde7fcda4d4496985d02e21a76d)
++++ b/.idea/workspace.xml	(date 1734108582592)
+@@ -5,8 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="4078cfcf-94c1-416c-8a08-a95bbc508eaf" name="Changes" comment="Updated code and final fixes">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/com/keyin/CityTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/passengers/Passengers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/passengers/Passengers.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/keyin/passengers/PassengersControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/keyin/passengers/PassengersControllerTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -51,28 +53,31 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.RestServiceApplication.executor&quot;: &quot;Debug&quot;,
+-    &quot;Maven.Sprint1_SDAT_DevOps [clean].executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.Sprint1_SDAT_DevOps [install].executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.RestServiceApplication.executor": "Debug",
++    "JUnit.PassengersControllerTest.executor": "Run",
++    "JUnit.java in Sprint1_SDAT_DevOps.executor": "Run",
++    "JUnit.passengers in Sprint1_SDAT_DevOps.executor": "Run",
++    "Maven.Sprint1_SDAT_DevOps [clean].executor": "Run",
++    "Maven.Sprint1_SDAT_DevOps [install].executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "main",
++    "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
+-  <component name="RunManager" selected="Application.RestServiceApplication">
++}]]></component>
++  <component name="RunManager" selected="JUnit.java in Sprint1_SDAT_DevOps">
+     <configuration name="RestServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.keyin.RestServiceApplication" />
+       <module name="Sprint1_SDAT_DevOps" />
+@@ -80,7 +85,7 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="PassengersRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="PassengersControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="Sprint1_SDAT_DevOps" />
+       <extension name="coverage">
+         <pattern>
+@@ -89,8 +94,16 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="com.keyin.passengers" />
+-      <option name="MAIN_CLASS_NAME" value="com.keyin.passengers.PassengersRepositoryTest" />
++      <option name="MAIN_CLASS_NAME" value="com.keyin.passengers.PassengersControllerTest" />
+       <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="java in Sprint1_SDAT_DevOps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="Sprint1_SDAT_DevOps" />
++      <option name="TEST_OBJECT" value="directory" />
++      <dir value="$PROJECT_DIR$/src/test/java" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -103,11 +116,20 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="RestServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
++      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
++      <module name="Sprint1_SDAT_DevOps" />
++      <option name="SPRING_BOOT_MAIN_CLASS" value="com.keyin.RestServiceApplication" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.java in Sprint1_SDAT_DevOps" />
++        <item itemvalue="JUnit.PassengersControllerTest" />
++        <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
+         <item itemvalue="Application.RestServiceApplication" />
+-        <item itemvalue="JUnit.PassengersRepositoryTest" />
+-        <item itemvalue="JUnit.passengers in Sprint1_SDAT_DevOps" />
+       </list>
+     </recent_temporary>
+   </component>
