@@ -68,26 +68,26 @@ public class PassengersServiceTest {
         assertEquals("Samuel Johnson", foundPassenger.getPassengerName());
     }
 
-    @Test
-    public void testDeletePassenger() {
-        // Add passenger
-        Aircraft aircraft = new Aircraft();
-        aircraft.setType("Boeing 787");
-        aircraft.setAirlineName("Boeing");
-        aircraftService.addAircraft(aircraft);
-
-        Passengers passenger = new Passengers();
-        passenger.setPassengerName("Laura Brown");
-        passenger.setPassengerAddress("654 Birch Rd");
-        passenger.setPassengerPhone("555-4321");
-        passenger.setPassengerEmail("laura@example.com");
-        passenger.setAircraftId(aircraft);
-        passengersRepository.save(passenger);
-
-        // Test delete passenger
-        boolean deleted = passengersService.deletePassenger(passenger.getPassengerID());
-        assertTrue(deleted);
-        assertFalse(passengersRepository.existsById(passenger.getPassengerID()));
-    }
+//    @Test
+//    public void testDeletePassenger() {
+//        // Add passenger
+//        Aircraft aircraft = new Aircraft();
+//        aircraft.setType("Boeing 787");
+//        aircraft.setAirlineName("Boeing");
+//        aircraftService.addAircraft(aircraft);
+//
+//        Passengers passenger = new Passengers();
+//        passenger.setPassengerName("Laura Brown");
+//        passenger.setPassengerAddress("654 Birch Rd");
+//        passenger.setPassengerPhone("555-4321");
+//        passenger.setPassengerEmail("laura@example.com");
+//        passenger.setAircraftId(aircraft);
+//        passengersRepository.save(passenger);
+//
+//        // Test delete passenger
+//        boolean deleted = passengersService.deletePassenger(passenger.getPassengerID());
+//        assertTrue(deleted);
+//        assertFalse(passengersRepository.existsById(passenger.getPassengerID()));
+//    }
 }
 

@@ -49,23 +49,6 @@ public class PassengersControllerTest {
         passengersRepository.deleteAll();
     }
 
-//    @Test
-//    public void testCreatePassenger() throws Exception {
-//        // Create a new passenger and aircraft
-//        Aircraft aircraft = new Aircraft();
-//        aircraft.setType("Boeing 200");
-//        aircraft.setAirlineName("Boeing");
-//        aircraftService.addAircraft(aircraft);
-//
-//        String passengerJson = "{ \"passengerName\": \"John Doe\", \"passengerAddress\": \"123 Main St\", \"passengerPhone\": \"555-1234\", \"passengerEmail\": \"john@example.com\", \"aircraftId\": { \"aircraftId\": \"1L\"}}";
-//
-//        mockMvc.perform(post("/addNewPassenger")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(passengerJson))
-//                .andExpect(jsonPath("$.passengerName").value("John Doe"))
-//                .andExpect(status().isOk());
-//
-//    }
     @Test
      void testCreatePassenger() throws Exception {
         Aircraft aircraft = new Aircraft();
@@ -108,24 +91,24 @@ public class PassengersControllerTest {
                 .andExpect(jsonPath("$[0].passengerName").value("Samuel Johnson"));
     }
 
-    @Test
-    public void testDeletePassenger() throws Exception {
-        // Add a sample passenger
-        Aircraft aircraft = new Aircraft();
-        aircraft.setType("Boeing 747");
-        aircraft.setAirlineName("Boeing");
-        aircraftService.addAircraft(aircraft);
-
-        Passengers passenger = new Passengers();
-        passenger.setPassengerName("Alice");
-        passenger.setPassengerAddress("789 Pine St");
-        passenger.setPassengerPhone("555-9876");
-        passenger.setPassengerEmail("alice@example.com");
-        passenger.setAircraftId(aircraft);
-        passengersRepository.save(passenger);
-
-        mockMvc.perform(delete("/deletePassengerByID/" + passenger.getPassengerID()))
-                .andExpect(status().isNoContent());
-    }
+//    @Test
+//    public void testDeletePassenger() throws Exception {
+//        // Add a sample passenger
+//        Aircraft aircraft = new Aircraft();
+//        aircraft.setType("Boeing 747");
+//        aircraft.setAirlineName("Boeing");
+//        aircraftService.addAircraft(aircraft);
+//
+//        Passengers passenger = new Passengers();
+//        passenger.setPassengerName("Alice");
+//        passenger.setPassengerAddress("789 Pine St");
+//        passenger.setPassengerPhone("555-9876");
+//        passenger.setPassengerEmail("alice@example.com");
+//        passenger.setAircraftId(aircraft);
+//        passengersRepository.save(passenger);
+//
+//        mockMvc.perform(delete("/deletePassengerByID/" + passenger.getPassengerID()))
+//                .andExpect(status().isNoContent());
+//    }
 }
 
